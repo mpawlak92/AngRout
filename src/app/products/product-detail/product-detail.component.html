@@ -1,0 +1,23 @@
+<div *ngIf="product$ | async as product">
+    <h2>Product Detail</h2>
+    <h3>{{product.name}}</h3>
+    <h4>{{product.price | currency:'EUR'}}</h4>
+    <input placeholder="Nowa cena" #price />
+    <button (click)="changePrice(product,price.valueAsNumber)">change</button>
+    <!-- <div [ngSwitch]="product.name">
+        <p *ngSwitchCase="'sam'">Kupisz sam</p>
+        <p *ngSwitchCase="'sung'">Kupisz sung</p>
+        <p *ngSwitchDefault>Nic nie kupisz</p>
+    </div> -->
+
+    <button class="delete" (click)="remove(product)">Delete</button>
+</div>
+<button (click)="buy()">Kup</button>
+
+
+<!-- <div [hidden]="!name">
+    <h2>Product Detail</h2>
+    <h3>{{name}}</h3>
+    <h4>{{productName}}</h4>
+    <button (click)="buy()">Kup</button>
+</div> -->

@@ -1,0 +1,34 @@
+/* Style for the h2 element */
+h2 {
+  border: 2px dashed black;
+}
+
+/* Style for the h3 element */
+h3 {
+  font-size: 20px;
+  color: #555; /* You can change the color to your preference */
+  margin-bottom: 20px;
+}
+
+/* Style for the button element */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* You can change the background color to your preference */
+  color: #fff; /* You can change the text color to your preference */
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover effect for the button */
+button:hover {
+  background-color: #0056b3; /* You can change the hover background color */
+}
+input{
+  margin-left: 5px;
+}
+.delete{
+  background-color: lightcoral;
+  color: white;
+  margin-left: 5px;
+}
