@@ -1,7 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,switchMap } from 'rxjs';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -18,12 +19,15 @@ export class ProductDetailComponent implements OnInit,OnChanges{
 
   @ViewChild(ProductDetailComponent) productDetail:ProductDetailComponent | undefined
 
-    constructor(private productService: ProductService){
+    constructor(private productService: ProductService, private route:ActivatedRoute){
       
     }
 
     ngOnInit(): void {
       // console.log(`Name to ${this.name} w onInit hook`)
+      this.product$ = this.route.paramMap.pipe(switchMap(params=> {
+        return this.productService.getProduct(Number(params.get('id')))
+      }))
     }
     ngOnChanges(): void {
       this.product$ = this.productService.getProduct(this.id)
